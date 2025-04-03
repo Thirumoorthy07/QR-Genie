@@ -1,0 +1,13 @@
+{
+  "name": "qrgenie",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "cd project && npm install && npm run dev"
+  },
+  "dependencies": {
+    "qrcode.react": "^4.2.0",
+    "react-router-dom": "^7.4.1"
+  }
+}

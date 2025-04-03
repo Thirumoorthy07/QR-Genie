@@ -1,0 +1,168 @@
+/* Layout and Responsive Design */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Navbar Layout */
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 700;
+  background: var(--neon-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--smooth-transition);
+}
+
+.nav-link:hover {
+  color: var(--accent);
+}
+
+.light-mode .nav-link {
+  color: #333;
+}
+
+/* Main Content Layout */
+main.container {
+  min-height: calc(100vh - 140px);
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* QR Generator Layout */
+.qr-generator {
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.input-group .neon-input {
+  flex: 1;
+}
+
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  padding: 30px;
+}
+
+.qr-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Scanner Layout */
+.scanner-page {
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.scanner-container {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+}
+
+.result-container {
+  margin-top: 30px;
+}
+
+.result-card {
+  padding: 15px;
+  margin: 15px 0;
+  word-break: break-all;
+}
+
+.result-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Footer Layout */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #999;
+  text-decoration: none;
+  transition: var(--smooth-transition);
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.accent-text {
+  color: var(--accent);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .input-group {
+    flex-direction: column;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+} 

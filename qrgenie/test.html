@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Genie Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #00A3FF;
+        }
+        .button {
+            background: #00A3FF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            background: #7D00FF;
+            box-shadow: 0 0 10px rgba(125, 0, 255, 0.7);
+            transform: translateY(-2px);
+        }
+        #demo-output {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 163, 255, 0.1);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 163, 255, 0.2);
+            display: none;
+        }
+        .glow-text {
+            color: #00FFD1;
+            text-shadow: 0 0 5px rgba(0, 255, 209, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Genie Test Page</h1>
+        <p>This is a test page to verify that local hosting works.</p>
+        <button class="button" onclick="showDemo()">Test Button</button>
+        <div id="demo-output">
+            <p>Button works! <span class="glow-text">QR Genie</span> is functioning correctly.</p>
+            <button class="button" onclick="window.location.href='index.html'">Back to Home</button>
+        </div>
+    </div>
+
+    <script>
+        function showDemo() {
+            document.getElementById('demo-output').style.display = 'block';
+        }
+    </script>
+</body>
+</html> 

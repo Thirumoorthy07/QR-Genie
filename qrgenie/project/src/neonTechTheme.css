@@ -1,0 +1,334 @@
+/* Neon Tech Glow Theme for QR Genie */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Color Palette */
+  --primary: #00A3FF;      /* Electric Blue */
+  --secondary: #7D00FF;    /* Neon Purple */
+  --dark-bg: #121212;      /* Dark Background */
+  --light-bg: #F5F5F5;     /* Light Background */
+  --accent: #00FFD1;       /* Glowing Cyan */
+  
+  /* Gradients */
+  --neon-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+  
+  /* Shadows and Effects */
+  --neon-glow: 0 0 10px rgba(0, 163, 255, 0.7);
+  --purple-glow: 0 0 10px rgba(125, 0, 255, 0.7);
+  --cyan-glow: 0 0 10px rgba(0, 255, 209, 0.7);
+}
+
+/* Dark Mode (Default) */
+.dark-mode {
+  --bg-color: var(--dark-bg);
+  --text-color: white;
+  --card-bg: rgba(255, 255, 255, 0.1);
+  --border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Light Mode */
+.light-mode {
+  --bg-color: var(--light-bg);
+  --text-color: #333;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --nav-text-color: #333;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Neon Headers */
+.neon-header {
+  background: var(--neon-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+/* Neon Accent Text */
+.neon-accent {
+  color: var(--accent);
+  text-shadow: 0 0 5px rgba(0, 255, 209, 0.5);
+}
+
+.light-mode .neon-accent {
+  color: var(--secondary);
+  text-shadow: 0 0 5px rgba(125, 0, 255, 0.5);
+}
+
+/* Buttons */
+.neon-button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-button:hover {
+  background: var(--secondary);
+  box-shadow: var(--purple-glow);
+  transform: translateY(-2px);
+}
+
+.neon-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(30deg);
+  transition: all 0.6s ease;
+}
+
+.neon-button:hover::after {
+  transform: rotate(30deg) translate(50%, 50%);
+}
+
+/* Input Fields */
+.neon-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.neon-input:focus {
+  border-color: var(--accent);
+  box-shadow: var(--cyan-glow);
+}
+
+.light-mode .neon-input {
+  background: white;
+  border: 1px solid #ddd;
+}
+
+/* QR Container */
+.qr-container {
+  border-radius: 15px;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: var(--neon-glow);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.qr-container::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  z-index: -1;
+  border-radius: 17px;
+  background: var(--neon-gradient);
+}
+
+/* Loading Animation */
+@keyframes qr-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-qr {
+  animation: qr-rotate 2s infinite linear;
+  color: var(--primary);
+  font-size: 2rem;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Scanner Effects */
+.scanner-container {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--neon-glow);
+}
+
+.scan-line {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+  box-shadow: var(--cyan-glow);
+  animation: scan 2s infinite linear;
+}
+
+@keyframes scan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+/* Navigation */
+.nav-link {
+  color: var(--text-color);
+  position: relative;
+  text-decoration: none;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: var(--neon-gradient);
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  width: 50px;
+  height: 26px;
+  background: var(--dark-bg);
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  border: 1px solid var(--primary);
+  transition: all 0.3s ease;
+}
+
+.toggle-thumb {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  top: 2px;
+  left: 3px;
+  transition: all 0.3s ease;
+}
+
+.light-mode .theme-toggle {
+  background: var(--light-bg);
+}
+
+.light-mode .toggle-thumb {
+  left: 27px;
+  background: var(--secondary);
+}
+
+/* Update specific styles for light mode */
+.light-mode .navbar {
+  background: rgba(245, 245, 245, 0.8);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .nav-link {
+  color: var(--nav-text-color) !important;
+}
+
+.light-mode .nav-link:hover {
+  color: var(--primary) !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  h1.neon-header {
+    font-size: 1.8rem;
+  }
+  
+  h2.neon-header {
+    font-size: 1.5rem;
+  }
+  
+  .neon-button {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .glass-card {
+    padding: 15px !important;
+  }
+  
+  .qr-container {
+    padding: 15px;
+  }
+  
+  /* Fix footer on small screens */
+  footer {
+    position: relative;
+    margin-top: 30px;
+  }
+  
+  /* Improve spacing for mobile */
+  main {
+    padding-bottom: 0 !important;
+  }
+  
+  /* Ensure consistent text colors in light mode */
+  .light-mode p, .light-mode li, .light-mode h3 {
+    color: var(--text-color);
+  }
+}
+
+/* Improve container sizing on small screens */
+@media (max-width: 480px) {
+  .flex-wrap {
+    justify-content: center;
+  }
+  
+  /* Make buttons stack better on very small screens */
+  .neon-button {
+    margin: 5px;
+  }
+  
+  /* Ensure QR code fits on small screens */
+  .qr-container img {
+    max-width: 100%;
+    height: auto;
+  }
+} 
